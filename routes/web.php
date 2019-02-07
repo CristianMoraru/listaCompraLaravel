@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@getHome');
 
 Route::get('login', function () {
     return view('auth.login');
@@ -22,15 +20,13 @@ Route::get('login', function () {
 Route::get('logout', function () {
     return 'Logout usuario';
 });
-Route::get('productos', function () {
-    return view('productos');
-});
-Route::get('productos/show/{id}', function ($id) {
-    return view('productos.show', array('id'=>$id));
-});
-Route::get('productos/create', function () {
-    return view('productos.create');
-});
-Route::get('productos/edit/{id}', function ($id) {
-    return view('productos.edit', array('id'=>$id));
-});
+Route::get('productos', 'ProductoController@getIndex');
+
+Route::get('productos/show/{id}', 'ProductoController@getShow');
+
+Route::get('productos/show/{id}', 'ProductoController@getShow');
+
+Route::get('productos/create', 'ProductoController@getCreate');
+
+Route::get('productos/edit/{id}', 'ProductoController@getEdit');
+
