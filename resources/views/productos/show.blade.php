@@ -11,15 +11,17 @@
 
 	    </div>
 	    <div class="col-sm-8">
-	    	@php
-				$key = 0;
-			@endphp
 
-	    	@foreach( $arrayProductos as $producto )
-	        {{ $producto }} <br />
-	        @endforeach
-	        <button type="button" class="btn btn-info">Producto actualmente comprado</button>
-	        <button type="button" class="btn btn-danger">Pendiente de compra</button>
+
+
+	        {{ $producto->nombre }} <br />
+	        {{ $producto->categoria }} <br />
+
+	        @if($producto->pendiente)
+                <button type="button" class="btn btn-info">Producto actualmente comprado</button>
+            @else
+            	 <button type="button" class="btn btn-danger">Pendiente de compra</button>
+            @endif
 
 	    </div>
 	</div>
